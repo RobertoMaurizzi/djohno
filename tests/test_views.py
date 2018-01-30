@@ -100,5 +100,5 @@ class DjohnoViewTests(DjohnoBaseViewTests):
         url = reverse('server_error_handler')
         response = self.client.get(url)
         self.assertEqual(response.status_code, 500)
-        #self.assertTrue('STATIC_URL' in response.context)  #meaningless now?
+        self.assertTrue('STATIC_URL' in response.context)  #meaningless now?
 

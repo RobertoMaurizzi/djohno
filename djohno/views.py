@@ -4,10 +4,10 @@ from django.core.exceptions import (
     ValidationError
 )
 from django.core.mail import send_mail
-from django.core.urlresolvers import reverse_lazy
+from django.urls import reverse_lazy
 from django.http import Http404, HttpResponseServerError
 from django.shortcuts import render
-from django.template import Context, loader
+from django.template import loader
 from django.template.loader import render_to_string
 from django.views.generic import View
 from djohno.utils import is_pretty_from_address
@@ -147,5 +147,5 @@ test_email = TestEmailView.as_view()
 
 def server_error(request, template_name='500.html'):
     tmpl = loader.get_template(template_name)
-    context = Context({'STATIC_URL': settings.STATIC_URL})
+    context = {'STATIC_URL': settings.STATIC_URL}
     return HttpResponseServerError(tmpl.render(context))
