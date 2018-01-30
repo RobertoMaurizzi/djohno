@@ -1,4 +1,4 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
 
 from .views import (
     frame_view,
@@ -13,8 +13,7 @@ from .views import (
     test_email
 )
 
-urlpatterns = patterns(
-    '',
+urlpatterns = (
     url(r'^$', frame_view, name='djohno_frame'),
     url(r'^403/$', frame_403_view, name='djohno_frame_403'),
     url(r'^404/$', frame_404_view, name='djohno_frame_404'),
